@@ -26,6 +26,7 @@ function FindProxyForURL(url, host) {
 }
 
 function _check_regex_list(regex_list, url) {
+  ':80/' === url.slice(0, 4) && (url = url.slice(3));
   for (var i = 0; i < regex_list.length; ++i)
     if (regex_list[i].test(url))
       return !0;
@@ -69,6 +70,7 @@ var _http_map = {
     "api.appsdk.soku.com": [/^\//i],
     "app.bilibili.com": [/^\/bangumi\/user_season_status\?/i, /^\//i],
     "bangumi.bilibili.com": [/^\/api\//i],
+    "interface.bilibili.com": [/^\/playurl\?/i],
     "122.72.82.31": [/^\//i],
     "211.151.158.155": [/^\//i],
     "vv.video.qq.com": [/^\//i],
@@ -124,7 +126,7 @@ var _http_map = {
     "api.3g.tudou.com": [/^\//i],
     "api.tv.sohu.com": [/^\/mobile_user\/device\/clientconf\.json\?/i],
     "access.tv.sohu.com": [/^\//i],
-    "iface.iqiyi.com": [/^\/api\/searchIface\?/i],
+    "iface.iqiyi.com": [/^\/api\/searchIface\?/i, /^\/api\/ip2area\?/i],
     "iface2.iqiyi.com": [/^\/php\/xyz\/iface\//i, /^\/php\/xyz\/entry\/galaxy\.php\?/i, /^\/php\/xyz\/entry\/nebula\.php\?/i],
     "cache.m.iqiyi.com": [/^\/jp\/tmts\//i],
     "dynamic.app.m.letv.com": [/^\/.*\/dynamic\.php\?.*ctl=videofile/i],
@@ -137,7 +139,6 @@ var _http_map = {
     "m.letv.com": [/^\/api\/geturl\?/i],
     "api.mob.app.letv.com": [/^\/play/i],
     "static.api.sports.letv.com": [/^\/.*vod\?/i],
-    "interface.bilibili.com": [/^\/playurl\?/i],
     "3g.music.qq.com": [/^\//i],
     "mqqplayer.3g.qq.com": [/^\//i],
     "proxy.music.qq.com": [/^\//i],
