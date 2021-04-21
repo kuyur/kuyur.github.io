@@ -1,4 +1,4 @@
-// http://kuyur.github.io/pac/proxy-163.pac
+// https://kuyur.github.io/pac/proxy-163.pac
 
 var domains = {
   'music.126.net': 1,
