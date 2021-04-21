@@ -22,7 +22,7 @@ var domains = {
   'tianyancha.com': 1 
 };
 
-var proxy =__PROXY__;
+var proxy = __PROXY__;
 var direct = 'DIRECT;';
 
 function FindProxyForURL(url, host) {
